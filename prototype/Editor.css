@@ -1,0 +1,22 @@
+.code-container {
+    height: 100%;
+    width: calc(50% - 12px);
+    background-color: var(--panel-color);
+    border-radius: var(--default-border-radius);
+    margin: var(--default-margin);
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: var(--default-margin);
+    filter: drop-shadow(var(--default-margin) var(--default-margin) var(--default-margin) var(--shadow-color));
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    overflow: scroll;
+}
+
+.code-editor {
+    height: 100% !important;
+    border-radius: var(--default-border-radius) !important;
+}
+
+

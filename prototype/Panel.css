@@ -1,0 +1,38 @@
+.panel-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: var(--panel-color);
+    border-radius: var(--default-border-radius);
+    filter: drop-shadow(var(--default-margin) var(--default-margin) var(--default-margin) var(--shadow-color));
+}
+
+.panel-part-1 {
+    display: flex;
+    justify-content: start;
+    width: 50%;
+}
+
+.panel-part-2 {
+    display: flex;
+    justify-content: end;
+    width: calc(50% - var(--default-margin));
+}
+
+.panel-element {
+    height: 60px;
+    max-width: 200px;
+    min-width: 60px;
+    border-radius: var(--default-border-radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+}
+
+.panel-element-btn:hover {
+    background-color: var(--btn-color);
+    transition-duration: 0.3ms;
+}

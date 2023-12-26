@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <link rel="stylesheet" href="./Main.css" />
+        <link rel="stylesheet" href="./Panel.css" />
+        <link rel="stylesheet" href="./Page.css" />
+        <link rel="stylesheet" href="./Editor.css" />
+        <link rel="stylesheet" href="./Results.css" />
+
+        <title>Analyzer</title>
+    </head>
+    <body>
+        <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
+        <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/xq-light.min.css"></link>
+        <div class="page">
+            <div class="panel-container">
+                <section class="panel-part-1">
+                    <span class="panel-element panel-element-btn">
+                        <svg width="40" height="40">
+                            <polygon points="10,5, 35,20 10,35" style="fill:lime;stroke:grey;" />
+                        </svg>
+                    </span>
+                    <span class="panel-element panel-element-btn">
+                        <svg width="40" height="40">
+                            <rect width="30" height="30" x="5" y="5" style="fill:tomato;stroke:grey;" />
+                        </svg>
+                    </span>
+                </section>
+                <section class="panel-part-2">
+                    <h1 class="panel-element">Analyzer</h1>
+                </section>
+            </div>
+            <div class="content-container">
+                <div class="code-container" style="margin-right: 16px">
+                    <!-- <div class="code-editor">
+                        <div class="code-numbers" id="numbers"></div>
+                        <textarea class="code-panel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="code" name="code" >d</textarea>
+                    </div> -->
+                    <textarea id="code" name="code" class="code-editor"># Put your code here...</textarea>
+                </div>
+                <div class="code-container">
+                    <h1>Переменные</h1>
+                    <table class="res-table">
+                        <tbody>
+                            <tr>
+                                <span class="lines-column"><td><b>Строка</b></td></span> 
+                                <span class="lines-column"><td><b>Переменные</b></td></span>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <button class="opening-btn">show</button>
+                                    <ul class="ul">
+                                        <li>...<button class="opening-btn">show</button><ul class="ul">
+                                            <li>amogus_sus: 20</li>
+                                            <li>sus: 30</li>
+                                            <li>dict1: ...<button class="opening-btn">show</button><ul class="ul">
+                                                <li>a: 3</li>
+                                                <li>b: "str"</li>
+                                            </ul></li>
+                                        </ul></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>    
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script type="text/javascript" language="javascript" src="./Lists.js" ></script>
+        <script type="text/javascript" src="./Highlight.js"></script>
+    </body>
+</html>
