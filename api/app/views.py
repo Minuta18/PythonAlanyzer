@@ -1,6 +1,7 @@
 import fastapi
 import datetime
 from app import schemas
+from app import renderer
 import asyncio
 import runner
 import base64
@@ -38,30 +39,10 @@ async def create_task(create_task: schemas.CreateTaskSchema):
 # async def create_task_options():
 #     return fastapi.Response(headers={'Access-Control-Allow-Origin': '*'})
 
-def render_dict(dct: dict):
-    return f'''<ul class="ul">
-    {[f'{key}: {value}' if type(value) != dict else f'{key}: ...<button class="opening-btn">show</button>{render_dict(value)}' for key, value in dct.items()]}
-</ul>
-'''
-
-def render_html(result: dict):
-    inner_html = '''<table class="res-table">
-    <tbody>
-        <tr>
-            <td><b>Строка</b></td>
-            <td><b>Переменные</b></td>
-        </tr>
-'''
-    
-    print(result)
-    for line, value in result:
-        inner_html += f'''<tr><td>{ line }</td><td>{ render_dict(value) }</td></tr>'''
-    inner_html += '''</tbody></table>'''
-    return inner_html
-
 @router.get('/{task_id}')
 async def view_task(task_id: str):
-    global cache
+    global cache, db
+
     task = cache.get(task_id)
     if task is not None:
         return task
@@ -73,14 +54,20 @@ async def view_task(task_id: str):
             'message': 'This task not found',
         }))
 
+
     task = task['task']
     if task.done():
-        cache.update({task_id: {
+        res = task.result()
+        res = dict(sorted(res.items()))
+        html = renderer.Renderer.render(res)
+        # print(res)
+        cache[task_id] = {
             'error': False,
             'done': True,
-            'result': task.result(),
-            'html': render_html(task.result()),
-        }})
+            'result': res,
+            'html': html,
+        }
+
         return cache[task_id]
     else:
         return {
