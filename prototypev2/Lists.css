@@ -1,0 +1,19 @@
+.variables-list {
+    list-style-position: outside;
+}
+
+.variables-list li {
+    vertical-align: middle;
+}
+
+.variable-int { list-style-image: url(./icons/Integer.svg); }
+.variable-str { list-style-image: url(./icons/string.svg); }
+.variable-method { list-style-image: url(./icons/method.svg); }
+.variable-class { list-style-image: url(./icons/class.svg); }
+.variable-package { list-style-image: url(./icons/namespace.svg); }
+.variable-dict { list-style-image: url(./icons/json.svg); }
+
+.ellipsis { 
+    cursor: pointer; 
+    
+}

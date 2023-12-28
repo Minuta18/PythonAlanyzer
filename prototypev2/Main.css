@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --default-padding: 16px;
+    --default-margin: 16px;
+    --default-radius: 16px;
+    --white: #ffffff;
+    --btn-background: #eeeeee;
+    --background: #dddddd;
+    --shadow: #bbbbbb;
+    --anim-dur: 0.3s;
+}
+
+html, body {
+    min-height: 95vh;
+    height: 95vh;
+    margin: var(--default-margin);
+    background-color: var(--background);
+    font-family: monospace;
+}
+

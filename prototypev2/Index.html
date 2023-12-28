@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="./Main.css" />
+        <link rel="stylesheet" href="./Container.css" />
+        <link rel="stylesheet" href="./Panel.css" />
+        <link rel="stylesheet" href="./Table.css" />
+        <link rel="stylesheet" href="./Lists.css" />
+
+        <title>Analyzer</title>
+    </head>
+    <body>
+        <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"></link>
+        <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/python/python.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/xq-light.min.css"></link>
+
+        <div class="grid-container">
+            <div class="top-panel-wrapper">
+                <div class="panel" style="padding: 0px;">
+                    <div class="top-panel">
+                        <div class="top-panel" style="width: 50%">
+                            <div class="top-panel-elem">
+                                <div class="top-panel-btn color-btn" onclick="runCode()">
+                                    <svg width="40" height="40">
+                                        <polygon points="10,5, 35,20 10,35" style="fill:rgb(58, 210, 51);stroke:rgb(53, 190, 46); border-radius: 5" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="top-panel-elem">
+                                <div class="top-panel-btn color-btn" onclick="stopCode()">
+                                    <svg width="40" height="40">
+                                        <rect width="30" height="30" x="5" y="5" style="fill:rgb(255, 90, 60);stroke:rgb(255, 90, 60);" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-panel" style="width: 50%; justify-content: end;">
+                            <div class="top-panel-elem">
+                                <h1>Analyzer</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="side-panel-wrapper">
+                <div class="panel">
+                    <textarea id="code" name="code" class="code-editor"># Put your code here...</textarea>
+                </div>
+            </aside>
+            <div class="variables-panel-wrapper">
+                <div class="panel">
+                    <h1>Variables</h1>
+                    <p id="res">Код не запущен</p>
+                    <!-- <table class="results-table">
+                        <thead>
+                            <tr id="head">
+                                <td>Line</td>
+                                <td>Variables' values</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><ul class="variables-list">
+                                    <li class="variable-int">a: 1</li>
+                                    <li class="variable-class">b: class ABC</li>
+                                    <li class="variable-dict">c: <span class="ellipsis">...</span>
+                                        <ul class="variables-list" style="display: none;">
+                                            <li class="variable-method">d: func</li>
+                                            <li class="variable-str">e: "dev"</li>
+                                    </ul></li>
+                                </ul></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Бла бла бла</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Бла бла бла</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                </div>
+            </div>
+            <div class="io-panel-wrapper">
+                <div class="panel">
+                    <div class="iopanel">
+                        <div class="ioelem">
+                            <h1>Input</h1>
+                            <textarea class="iotext"></textarea>
+                        </div>
+                        <div class="ioelem">
+                            <h1>Output</h1>
+                            <textarea readonly class="iotext"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="./Lists.js"></script>
+        <script type="text/javascript" src="./CodeEditor.js"></script>
+        <script type="text/javascript" src="./CodeRunner.js"></script>
+    </body>
+</html>
