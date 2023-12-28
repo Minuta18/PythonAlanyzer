@@ -1,16 +1,23 @@
 class Renderer:
     def render_dict(dct: dict):
         points = ''
-        for key, value in dct.items():
-            points += f'<li class="variable-int">{key}: '
-            if type(value) == str:
-                points += f'"{value}"'
-            elif type(value) == bytes:
-                points += f'b"{value}"'
-            elif type(value) == dict:
-                points += f'<span class="ellipsis">...</span>{Renderer.render_dict(value)}'
+        for key, val in dct.items():
+            value = val['value']
+            type_ = val['type']
+            if type_ == 'str':
+                points += f'<li class="variable-str">{key}: "{value}"'
+            elif type_ == 'bytes':
+                points += f'<li class="variable-str">{key}: b"{value}"'
+            elif type_ == 'dict':
+                points += f'<li class="variable-dict">{key}: <span class="ellipsis">...</span>{Renderer.render_dict(value)}'
+            elif type_ == 'NoneType':
+                points += f'<li class="variable-none">{key}: {value}'
+            elif type_ == 'int':
+                points += f'<li class="variable-int">{key}: {value}'
+            elif type_ == 'module':
+                points += f'<li class="variable-package">{key}: {value}'
             else:
-                points += f'{value}'
+                points += f'<li class="variable-class">{key}: {value}'
             points += '</li>'
         return f'<ul class="variables-list" style="display: none">{points}</ul>'
 

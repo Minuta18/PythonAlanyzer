@@ -5,7 +5,7 @@ PYTHON_INTERPRETER = 'python3'
 
 class ISandBox:
     def __init__(self, filename: str, timeout: int = 15): raise NotImplementedError
-    def get_output(self) -> (bytes, bytes): raise NotImplementedError
+    def get_output(self) -> (bytes, bytes, int): raise NotImplementedError
 
 class NoSandBox(ISandBox):
     def __init__(self, filename: str, timeout: int = 15):

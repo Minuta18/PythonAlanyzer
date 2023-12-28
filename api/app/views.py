@@ -57,15 +57,16 @@ async def view_task(task_id: str):
 
     task = task['task']
     if task.done():
-        res = task.result()
+        res, data = task.result()
         res = dict(sorted(res.items()))
         html = renderer.Renderer.render(res)
-        # print(res)
         cache[task_id] = {
             'error': False,
             'done': True,
             'result': res,
             'html': html,
+            'err': data['err'],
+            'out': data['out'],
         }
 
         return cache[task_id]
