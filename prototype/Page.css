@@ -11,3 +11,10 @@
     flex-direction: row;
     height: 85%;
 }
+
+.content-container-vert {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

@@ -14,5 +14,3 @@ function setupLists() {
         })
     }
 }
-
-setupLists();
