@@ -44,7 +44,9 @@ setInterval(() => {
           .then((json) => {
             if (json["done"]) {
                 let res_tag = document.getElementById("res");
+                let output = document.getElementById("out");
                 res_tag.innerHTML = json["html"];
+                output.value = json["out"] + json["err"];
                 enable_checking = false;
                 setupLists();
             }

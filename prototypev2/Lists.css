@@ -12,6 +12,7 @@
 .variable-class { list-style-image: url(./icons/class.svg); }
 .variable-package { list-style-image: url(./icons/namespace.svg); }
 .variable-dict { list-style-image: url(./icons/json.svg); }
+.variable-none { list-style-image: url(./icons/none.svg); }
 
 .ellipsis { 
     cursor: pointer; 
