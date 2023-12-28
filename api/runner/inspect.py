@@ -27,12 +27,13 @@ class Inspector:
             text = f.readlines()
         with open(self.filename, 'w') as f:
             f.write('import sys\n')
-            for ind, line in enumerate(text[:-1]):
+            f.write(self._modify_line(text[0], '', f'{0}:'))
+            f.write(text[0].replace('\t', ' ' * tabsize) + '\n')
+            for ind, line in enumerate(text[1:]):
                 line.replace('\t', ' ' * tabsize)
-                f.write(line)
                 f.write(self._modify_line(text[ind], text[ind + 1], f'{ind + 1}:'))
-            f.write(text[-1].replace('\t', ' ' * tabsize) + '\n')
-            f.write(self._modify_line(text[-1], '', f'{len(text)}:'))
+                f.write(line)
+            f.write(self._modify_line('', '', f'{len(text)}:'))
 
     def _parse_out(self, out: str) -> (dict, str):
         out_dict = dict()

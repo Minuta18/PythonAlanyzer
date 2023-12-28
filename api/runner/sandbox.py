@@ -19,8 +19,8 @@ class NoSandBox(ISandBox):
         self.timeout = timeout
 
     def __del__(self):
-        # os.remove(self.filename)
-        pass
+        os.remove(self.filename)
+        # pass
 
     def _get_command(self):
         return [PYTHON_INTERPRETER, self.filename]
