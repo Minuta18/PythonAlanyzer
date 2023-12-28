@@ -19,7 +19,8 @@ class NoSandBox(ISandBox):
         self.timeout = timeout
 
     def __del__(self):
-        os.remove(self.filename)
+        # os.remove(self.filename)
+        pass
 
     def _get_command(self):
         return [PYTHON_INTERPRETER, self.filename]
@@ -30,4 +31,4 @@ class NoSandBox(ISandBox):
         except subprocess.TimeoutExpired:
             self.proc.kill()
             out, err = self.proc.communicate(timeout=self.timeout)
-        return out, err
+        return out, err, self.proc.returncode

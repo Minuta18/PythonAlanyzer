@@ -28,8 +28,13 @@ class Inspector:
     async def inspect(self) -> dict:
         self._modify_file(tabsize=self.tabsize)
         sbox = sandbox.NoSandBox(self.filename, timeout=TIME_LIMIT)
-        out, _ = await sbox.get_output()
+        out, err, code = await sbox.get_output()
         out = out.decode('utf-8')
+        err = err.decode('utf-8')
+
+        if code != 0:
+            return {'error': err, 'code': code}
+
         out_dict = {}
 
         for line in out.split('\n'):
